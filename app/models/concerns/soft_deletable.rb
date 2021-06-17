@@ -23,4 +23,8 @@ module SoftDeletable
   def restore
     update(deleted_at: nil)
   end
+
+  def deleted?
+    deleted_at?
+  end
 end
