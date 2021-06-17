@@ -19,4 +19,8 @@ module SoftDeletable
       update(deleted_at: Time.zone.now)
     end
   end
+
+  def restore
+    update(deleted_at: nil)
+  end
 end
