@@ -5,5 +5,7 @@ module SoftDeletable
     scope :deleted, ->{ where.not(deleted_at: nil) }
     scope :without_deleted, ->{ where(deleted_at: nil) }
     scope :with_deleted, ->{ all }
+
+    default_scope { without_deleted }
   end
 end
