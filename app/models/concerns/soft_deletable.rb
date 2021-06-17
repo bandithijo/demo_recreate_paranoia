@@ -11,5 +11,12 @@ module SoftDeletable
     # .deleted method
     # default_scope { without_deleted }
   end
+
+  def destroy(mode=:soft)
+    if mode == :hard
+      super()
+    else
+      update(deleted_at: Time.zone.now)
+    end
   end
 end
